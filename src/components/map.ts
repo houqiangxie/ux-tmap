@@ -194,6 +194,8 @@ export default defineComponent({
         });
 
         map.value = mapIns;
+        const logo = document.querySelector('canvas+div>div>div:first-child')
+        if (logo) logo.style.display = 'none'
       }
     });
     onUnmounted(() => {
