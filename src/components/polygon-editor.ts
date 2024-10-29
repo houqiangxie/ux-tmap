@@ -126,6 +126,21 @@ export default defineComponent({
     editor.on('union_fail', (e: object) => {
       emit('error', e);
     });
+    // 更新 overlay 几何数据的函数
+    function updateOverlay() {
+      const geometries = buildGeometries(props.modelValue);
+      // // 更新 geometries
+      polygon.setGeometries(geometries);
+
+      // 确保 GeometryEditor 监听到变化
+      // editor.setOverlay(polygon2);
+
+      // 或者直接更新 editor.overlayList 中的数据
+      // const targetOverlay = editor.overlayList.find(item => item.id === props.id);
+      // if (targetOverlay) {
+      //   targetOverlay.overlay.setGeometries(geometries);
+      // }
+    }
     watch(
       () => props.actionMode,
       (actionMode) => {
@@ -151,7 +166,8 @@ export default defineComponent({
       union: editor.union.bind(editor),
       delete: editor.delete.bind(editor),
       destroy: editor.destroy.bind(editor),
-      getSelectedList: editor.getSelectedList.bind(editor)
+      getSelectedList: editor.getSelectedList.bind(editor),
+      updateOverlay,
     };
   },
   render() {
