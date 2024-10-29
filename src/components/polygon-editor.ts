@@ -151,6 +151,7 @@ export default defineComponent({
       union: editor.union.bind(editor),
       delete: editor.delete.bind(editor),
       destroy: editor.destroy.bind(editor),
+      getSelectedList: editor.getSelectedList.bind(editor)
     };
   },
   render() {
