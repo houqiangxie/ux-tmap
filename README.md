@@ -1,25 +1,25 @@
-# vue-tmap
+# ux-tmap
 
-![](https://img.shields.io/npm/v/@map-component/vue-tmap.svg)
-![](https://img.shields.io/npm/dt/@map-component/vue-tmap.svg)
+![](https://img.shields.io/npm/v/ux-tmap.svg)
+![](https://img.shields.io/npm/dt/ux-tmap.svg)
 ![](https://img.shields.io/npm/l/express.svg)
 
-- zh_CN [简体中文](https://github.com/didi/vue-tmap/blob/main/README.zh_CN.md)
+- zh_CN [简体中文](https://github.com/didi/ux-tmap/blob/main/README.zh_CN.md)
 
 ### Introduction
 
-vue-tmap, a high-performance map component library for Vue3 based on Tencent Maps and TypeScript encapsulation, has the following features:
+ux-tmap, a high-performance map component library for Vue3 based on Tencent Maps and TypeScript encapsulation, has the following features:
 
 - Improve documentation: improve the readability of documentation based on official documentation and framework usage, and improve component examples
 - Componentization: Encapsulate the Tencent Maps imperative api as a responsive component, no need to care about the complex map api, only need to operate the data
-- Multi-framework: including [react-tmap](https://github.com/didi/react-tmap) and [vue-tmap](https://github.com/didi/vue-tmap), and share the same set of type definitions
+- Multi-framework: including [react-tmap](https://github.com/didi/react-tmap) and [ux-tmap](https://github.com/didi/ux-tmap), and share the same set of type definitions
 - Type-safe: supplemented the type declaration of Tencent Maps sdk, components are also developed using TypeScript, a better development experience
 - Custom components: provide an open map instance, you can write custom components or directly call the map's native api
 - Performance optimization: unify the map api calling method and data monitoring to prevent performance problems caused by misuse of the map api
 
 ### Documentation and Examples
 
-Welcome to [Official document address](https://didi.github.io/vue-tmap/) to view more map components.
+Welcome to [Official document address](https://didi.github.io/ux-tmap/) to view more map components.
 
 - [Tencent Maps Official Documentation](https://lbs.qq.com/webApi/javascriptGL/glDoc/glDocIndex)
 
@@ -42,7 +42,7 @@ Welcome to [Official document address](https://didi.github.io/vue-tmap/) to view
 #### Install
 
 ```shell
-npm install @map-component/vue-tmap
+npm install ux-tmap
 ```
 
 #### Apply for Tencent map key
@@ -114,7 +114,7 @@ Please submit your code via pull request and we'll take a look soon
 ```
 git clone xxx
 
-cd react-tmap // cd vue-tmap
+cd react-tmap // cd ux-tmap
 
 npm install
 

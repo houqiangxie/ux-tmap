@@ -2,14 +2,14 @@ module.exports = {
   lang: 'zh-CN',
   title: '腾讯地图 vue 组件',
   description: '腾讯地图 vue 组件 tmap',
-  base: '/vue-tmap/',
+  base: '/ux-tmap/',
   themeConfig: {
     lastUpdated: 'Last Updated',
     nav: [
       { text: '文档', link: '/guide/', activeMatch: '^/$|^/guide|^/api/' },
       {
         text: '仓库地址',
-        link: 'https://github.com/didi/vue-tmap',
+        link: 'https://github.com/didi/ux-tmap',
       },
     ],
 

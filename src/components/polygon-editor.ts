@@ -45,7 +45,7 @@ export default defineComponent({
       type: Number,
     },
   },
-  emits: ['update:modelValue', 'select', 'error'],
+  emits: ['update:modelValue', 'select', 'error','draw_complete','adjust_complete','delete_complete','split_complete','union_complete'],
   setup(props, { emit }) {
     const map = inject<Ref<TMap.Map>>('map');
     if (!map) {
@@ -84,12 +84,14 @@ export default defineComponent({
     });
     editor.on('draw_complete', (e: TMap.PolygonGeometry) => {
       emit('update:modelValue', [...props.modelValue, e]);
+      emit('draw_complete', e);
     });
     editor.on('adjust_complete', (e: TMap.PolygonGeometry) => {
       for (let i = props.modelValue.length - 1; i >= 0; i -= 1) {
         if (props.modelValue[i].id === e.id) {
           Object.assign(props.modelValue[i], e);
           emit('update:modelValue', [...props.modelValue]);
+          emit('adjust_complete', e);
           break;
         }
       }
@@ -101,6 +103,7 @@ export default defineComponent({
         props.modelValue.filter((v) => removedIds.indexOf(v.id) === -1),
       );
       emit('select', editor.getSelectedList());
+      emit('delete_complete', e);
     });
     editor.on('split_complete', (e: TMap.PolygonGeometry[]) => {
       const activeOverlay = editor.getActiveOverlay();
@@ -109,11 +112,13 @@ export default defineComponent({
         ...e,
       ]);
       emit('select', editor.getSelectedList());
+      emit('split_complete', e);
     });
     editor.on('union_complete', (e: TMap.PolygonGeometry) => {
       const activeOverlay = editor.getActiveOverlay();
       emit('update:modelValue', [...activeOverlay.overlay.getGeometries(), e]);
       emit('select', editor.getSelectedList());
+      emit('union_complete', e);
     });
     editor.on('split_fail', (e: object) => {
       emit('error', e);

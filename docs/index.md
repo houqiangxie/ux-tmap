@@ -2,7 +2,7 @@
 home: true
 # heroImage: /logo.png
 heroAlt: Logo image
-heroText: vue-tmap
+heroText: ux-tmap
 tagline: 基于 Vue 3.x 的腾讯地图组件
 actionText: 起步
 actionLink: /guide/

@@ -1,8 +1,16 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: houqiangxie
+ * @Date: 2024-10-29 08:59:20
+ * @LastEditors: houqiangxie
+ * @LastEditTime: 2024-10-29 09:09:33
+-->
 # 快速上手
 
 ---
 
-本节将介绍如何在项目中使用 vue-tmap。
+本节将介绍如何在项目中使用 ux-tmap。
 
 ## 申请腾讯地图密钥
 
@@ -20,7 +28,7 @@ https://lbs.qq.com/dev/console/key/manage
 入口文件
 ```
 
-## 引入 vue-tmap
+## 引入 ux-tmap
 
 main.js
 

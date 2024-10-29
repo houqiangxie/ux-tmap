@@ -1,21 +1,21 @@
-# vue-tmap
+# ux-tmap
 
-- en [English](https://github.com/didi/vue-tmap/blob/main/README.md)
+- en [English](https://github.com/didi/ux-tmap/blob/main/README.md)
 
 ### 简介
 
-vue-tmap，一个基于腾讯地图、TypeScript 封装适用于 Vue3 的高性能地图组件库，拥有以下功能特性：
+ux-tmap，一个基于腾讯地图、TypeScript 封装适用于 Vue3 的高性能地图组件库，拥有以下功能特性：
 
 - 文档完善：基于官方文档和框架用法的文档可读性高，组件示例完善
 - 组件化：封装腾讯地图命令式的 api 为响应式组件，无需关心复杂的地图 api，只需要操作数据即可
-- 多框架：包含 [react-tmap](https://github.com/didi/react-tmap) 和 [vue-tmap](https://github.com/didi/vue-tmap)，且共享同一套类型定义
+- 多框架：包含 [react-tmap](https://github.com/didi/react-tmap) 和 [ux-tmap](https://github.com/didi/ux-tmap)，且共享同一套类型定义
 - Type-safe：补充了腾讯地图 sdk 的类型声明，组件也使用 TypeScript 开发，更好的开发体验
 - 自定义组件：提供开放地图实例，可编写自定义组件或直接调用地图原生 api
 - 性能优化：统一地图 api 调用方式和数据监听，防止误用地图 api 引起性能问题
 
 ### 文档和示例
 
-欢迎访问[文档地址](https://didi.github.io/vue-tmap/)，查看更多地图组件。
+欢迎访问[文档地址](https://didi.github.io/ux-tmap/)，查看更多地图组件。
 
 - [腾讯地图官方文档](https://lbs.qq.com/webApi/javascriptGL/glDoc/glDocIndex)
 
@@ -38,7 +38,7 @@ vue-tmap，一个基于腾讯地图、TypeScript 封装适用于 Vue3 的高性�
 #### 安装
 
 ```shell
-npm install @map-component/vue-tmap
+npm install ux-tmap
 ```
 
 #### 申请腾讯地图密钥
@@ -110,7 +110,7 @@ export default defineComponent({
 ```
 git clone xxx
 
-cd react-tmap   // cd vue-tmap
+cd react-tmap   // cd ux-tmap
 
 npm install
 

@@ -1,16 +1,12 @@
 {
-  "name": "@map-component/vue-tmap",
+  "name": "ux-tmap",
   "version": "1.0.1",
   "description": "基于腾讯地图 JavaScript API GL、TypeScript 封装适用于 Vue3 的高性能地图组件库",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/didi/vue-tmap.git"
+    "url": "https://github.com/houqiangxie/vue-tmap.git"
   },
-  "bugs": {
-    "url": "https://github.com/didi/vue-tmap/issues"
-  },
-  "homepage": "https://didi.github.io/vue-tmap/",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "keywords": [
@@ -69,5 +65,8 @@
     "vite-plugin-dts": "^1.5.0",
     "vitepress": "^0.22.4",
     "vue": "^3.1.0"
+  },
+  "volta": {
+    "node": "16.20.2"
   }
 }

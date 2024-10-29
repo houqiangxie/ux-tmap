@@ -15,7 +15,7 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["@map-component/tmap-types", "webpack-env", "mocha", "chai"],
+    "types": ["@map-component/tmap-types", "mocha", "chai"],
     "paths": {
       "@/*": ["src/*"]
     },
