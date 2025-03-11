@@ -23,5 +23,5 @@ export default defineConfig({
       external: ['vue'],
     },
   },
-  plugins: [dts()],
+  // plugins: [dts()],
 });

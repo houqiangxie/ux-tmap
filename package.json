@@ -1,6 +1,6 @@
 {
   "name": "ux-tmap",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "基于腾讯地图 JavaScript API GL、TypeScript 封装适用于 Vue3 的高性能地图组件库",
   "license": "MIT",
   "repository": {
@@ -19,7 +19,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "prebuild": "tsc -b buildconfig.json",
-    "build": "npm run prebuild && vite build --config vite.config.js",
+    "build": "vite build --config vite.config.js",
     "release": "npm run build && npm publish",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",

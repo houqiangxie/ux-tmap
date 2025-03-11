@@ -54,7 +54,7 @@ export default defineComponent({
     const originMap = toRaw(map.value);
     useCleanUp(originMap, props.id);
     const geometries = buildGeometries(props.modelValue);
-    const polygon = new TMap.MultiPolygon({
+    let polygon = new TMap.MultiPolygon({
       id: props.id,
       map: originMap,
       zIndex: props.zIndex,
@@ -127,19 +127,34 @@ export default defineComponent({
       emit('error', e);
     });
     // 更新 overlay 几何数据的函数
-    function updateOverlay() {
-      const geometries = buildGeometries(props.modelValue);
+    function updateOverlay(value) {
+      const geometries = buildGeometries(value||props.modelValue);
       // // 更新 geometries
       polygon.setGeometries(geometries);
+    }
 
-      // 确保 GeometryEditor 监听到变化
-      // editor.setOverlay(polygon2);
+    function updatePolygonGeometry(value) {
+      if (polygon) {
+        polygon.setMap(null); // 移除旧的 polygon
+      }
+      const newGeometries = buildGeometries(value||props.modelValue);
+      polygon = new TMap.MultiPolygon({
+        id: props.id,
+        map: originMap,
+        zIndex: props.zIndex,
+        styles: builtStyle(props.styles),
+        geometries: newGeometries,
+      });
 
-      // 或者直接更新 editor.overlayList 中的数据
-      // const targetOverlay = editor.overlayList.find(item => item.id === props.id);
-      // if (targetOverlay) {
-      //   targetOverlay.overlay.setGeometries(geometries);
-      // }
+      // 重新添加到编辑器
+      editor.setOverlayList([
+        {
+          overlay: polygon,
+          id: props.id,
+          drawingStyleId: props.drawingStyleId,
+          selectedStyleId: props.selectedStyleId,
+        },
+      ]);
     }
     watch(
       () => props.actionMode,
@@ -168,6 +183,7 @@ export default defineComponent({
       destroy: editor.destroy.bind(editor),
       getSelectedList: editor.getSelectedList.bind(editor),
       updateOverlay,
+      updatePolygonGeometry,
     };
   },
   render() {
