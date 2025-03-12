@@ -130,9 +130,6 @@ export default defineComponent({
     // 更新 overlay 几何数据的函数
     function updateOverlay(value) {
       const geometries = value || props.modelValue;
-      // // 更新 geometries
-      polygon.updateGeometries(geometries);
-
       const currentGeometriesMap = keyBy(currentGeometries, 'id');
       const toDelete = new Set(Object.keys(currentGeometriesMap));
       const toAddOrModify: TMap.PolygonGeometry[] = [];
