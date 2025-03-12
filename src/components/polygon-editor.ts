@@ -9,7 +9,7 @@ import {
 } from 'vue';
 import useCleanUp from '../composables/use-clean-up';
 import { builtStyle, buildGeometries } from './multi-polygon';
-
+import keyBy from '../utils/keyBy';
 export default defineComponent({
   name: 'tmap-polygon-editor',
   props: {
@@ -53,6 +53,7 @@ export default defineComponent({
     }
     const originMap = toRaw(map.value);
     useCleanUp(originMap, props.id);
+    let currentGeometries = props.modelValue;
     const geometries = buildGeometries(props.modelValue);
     let polygon = new TMap.MultiPolygon({
       id: props.id,
@@ -128,9 +129,31 @@ export default defineComponent({
     });
     // 更新 overlay 几何数据的函数
     function updateOverlay(value) {
-      const geometries = buildGeometries(value||props.modelValue);
+      const geometries = value || props.modelValue;
       // // 更新 geometries
       polygon.updateGeometries(geometries);
+
+      const currentGeometriesMap = keyBy(currentGeometries, 'id');
+      const toDelete = new Set(Object.keys(currentGeometriesMap));
+      const toAddOrModify: TMap.PolygonGeometry[] = [];
+
+      geometries.forEach((v) => {
+        if (currentGeometriesMap[v.id]) {
+          toDelete.delete(v.id);
+          if (!equalPolygonGeometry(currentGeometriesMap[v.id], v)) {
+            toAddOrModify.push(v);
+          }
+        } else {
+          toAddOrModify.push(v);
+        }
+      });
+      currentGeometries = geometries;
+      if (toDelete.size > 0) {
+        polygon.remove([...toDelete]);
+      }
+      if (toAddOrModify.length > 0) {
+        polygon.updateGeometries(buildGeometries(geometries));
+      }
     }
 
     watch(
