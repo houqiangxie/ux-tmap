@@ -130,32 +130,9 @@ export default defineComponent({
     function updateOverlay(value) {
       const geometries = buildGeometries(value||props.modelValue);
       // // 更新 geometries
-      polygon.setGeometries(geometries);
+      polygon.updateGeometries(geometries);
     }
 
-    function updatePolygonGeometry(value) {
-      if (polygon) {
-        polygon.setMap(null); // 移除旧的 polygon
-      }
-      const newGeometries = buildGeometries(value||props.modelValue);
-      polygon = new TMap.MultiPolygon({
-        id: props.id,
-        map: originMap,
-        zIndex: props.zIndex,
-        styles: builtStyle(props.styles),
-        geometries: newGeometries,
-      });
-
-      // 重新添加到编辑器
-      editor.setOverlayList([
-        {
-          overlay: polygon,
-          id: props.id,
-          drawingStyleId: props.drawingStyleId,
-          selectedStyleId: props.selectedStyleId,
-        },
-      ]);
-    }
     watch(
       () => props.actionMode,
       (actionMode) => {
@@ -183,7 +160,6 @@ export default defineComponent({
       destroy: editor.destroy.bind(editor),
       getSelectedList: editor.getSelectedList.bind(editor),
       updateOverlay,
-      updatePolygonGeometry,
     };
   },
   render() {
