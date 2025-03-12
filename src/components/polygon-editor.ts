@@ -10,6 +10,7 @@ import {
 import useCleanUp from '../composables/use-clean-up';
 import { builtStyle, buildGeometries } from './multi-polygon';
 import keyBy from '../utils/keyBy';
+import { equalPolygonGeometry } from '../utils/equal';
 export default defineComponent({
   name: 'tmap-polygon-editor',
   props: {
